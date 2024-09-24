@@ -1,0 +1,49 @@
+services:
+  node1:
+    build: .
+    environment:
+      - NODE_ID=node1
+    volumes:
+      - ./node1/sync_dir:/app/sync_dir
+    ports:
+      - "5001:5000"
+    networks:
+      - app_net
+
+  node2:
+    build: .
+    environment:
+      - NODE_ID=node2
+    volumes:
+      - ./node2/sync_dir:/app/sync_dir
+    ports:
+      - "5002:5000"
+    networks:
+      - app_net
+
+  node3:
+    build: .
+    environment:
+      - NODE_ID=node3
+    volumes:
+      - ./node3/sync_dir:/app/sync_dir
+    ports:
+      - "5003:5000"
+    networks:
+      - app_net
+
+  node4:
+    build: .
+    environment:
+      - NODE_ID=node4
+    volumes:
+      - ./node4/sync_dir:/app/sync_dir
+    ports:
+      - "5004:5000"
+    networks:
+      - app_net
+
+
+networks:
+  app_net:
+    driver: bridge
